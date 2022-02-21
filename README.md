@@ -34,9 +34,6 @@ php artisan db:seed
 php artisan serve
 ```
 
-```
-php artisan serve
-```
 
 .env
 
