@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api\v2;
+namespace App\Http\Controllers\Api\v1;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Services\ApiService;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
@@ -14,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-   
+        $users = UserResource::collection(User::all());
+        ApiService::_success($users);
     }
 
     /**

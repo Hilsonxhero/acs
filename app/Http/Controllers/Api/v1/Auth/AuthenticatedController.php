@@ -13,6 +13,8 @@ class AuthenticatedController extends Controller
 
     public function store(Request $request)
     {
+        //   dd(getenv('PASSPORT_CLIENT_SECRET'));
+
         ApiService::Validator($request->all(), [
             'email' => ['required', 'email'],
             'password' => ['required']
@@ -35,6 +37,7 @@ class AuthenticatedController extends Controller
             if ($e->getCode() === 400) {
                 ApiService::_throw("Invalid Request. Please enter a username or a password.", $e->getCode());
             } else if ($e->getCode() === 401) {
+                ApiService::_throw($e->getMessage());
                 ApiService::_throw("Your credentials are incorrect. Please try again", $e->getCode());
             }
 

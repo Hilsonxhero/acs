@@ -15,14 +15,13 @@ class ArticlePolicy
      *
      * @return void
      */
+    
     public function __construct()
     {
     }
 
     public function view(User $user)
     {
-        return $user->hasRole(Role::ROLE_STUDENT);
+        return $user->hasRole(Role::ROLE_WRITER);
     }
-
-
 }

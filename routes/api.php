@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->middleware('api')->group(function () {
 
+
     Route::apiResource('/articles', \App\Http\Controllers\Api\v1\ArticleController::class);
+    Route::apiResource('/users', \App\Http\Controllers\Api\v1\UserController::class);
 
     Route::middleware('guest')->group(function () {
         Route::post('/register', [\App\Http\Controllers\Api\v1\Auth\RegisteredUserController::class, 'store']);
@@ -27,6 +29,7 @@ Route::prefix('v1')->middleware('api')->group(function () {
     });
 
     Route::middleware('auth:api')->group(function () {
+        Route::apiResource('/panel/writer/articles', \App\Http\Controllers\Api\v1\Writer\ArticleController::class);
         Route::get('/user', [\App\Http\Controllers\Api\v1\Auth\AuthenticatedController::class, 'show'])->name('user.show');
         Route::post('logout', [\App\Http\Controllers\Api\v1\Auth\AuthenticatedController::class, 'logout']);
     });
