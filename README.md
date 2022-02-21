@@ -1,4 +1,5 @@
-### 🛡️ hero auth is a free  REST API that you can use whenever you need some fake data and Authentication (laravel x9 & php x8)
+### 🛡️ hero auth is a free  REST API that you can use whenever you need some fake data and Authentication with acl
+ #### (laravel x9 & php x8)
 
 ***
 
@@ -25,10 +26,26 @@ php artisan passport:install
 php artisan vendor:publish --tag=passport-migrations
 ```
 
-
 ```
 php artisan db:seed
 ```
+
+```
+php artisan serve
+```
+
+```
+php artisan serve
+```
+
+.env
+
+```
+PASSPORT_LOGIN_ENDPOINT="http://example.test/oauth/token"
+PASSPORT_CLIENT_ID=2
+PASSPORT_CLIENT_SECRET= YOUR CLIENT SECRET
+```
+
 
 
 
@@ -48,6 +65,12 @@ php artisan db:seed
 
 - **[password reset confirmation]()**
 
+- **[user]()**
+
+- **[logout]()**
+
+- **[manage articles]()**
+
 
 ### 📌 Routes
 
@@ -64,6 +87,15 @@ php artisan db:seed
 - **[POST : http://127.0.0.1:8080/password/reset]()**
 
 - **[POST : http://127.0.0.1:8080/password/reset/confirmation]()**
+
+- **[GET : http://127.0.0.1:8080/user]()**
+
+- **[POST : http://127.0.0.1:8080/logout]()**
+
+- **[GET : http://127.0.0.1:8080/panel/writer/articles]()**
+- **[POST : http://127.0.0.1:8080/panel/writer/articles]()**
+- **[PUT : http://127.0.0.1:8080/panel/writer/articles/{id}]()**
+- **[DELETE : http://127.0.0.1:8080/panel/writer/articles/{id}]()**
 
 
 
