@@ -15,16 +15,17 @@ php artisan generate:key
 ```
 
 ```
-php artisan migrate
-```
-
-```
 php artisan passport:install
 ```
 
 ```
 php artisan vendor:publish --tag=passport-migrations
 ```
+
+```
+php artisan migrate
+```
+
 
 ```
 php artisan db:seed
