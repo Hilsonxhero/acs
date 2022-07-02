@@ -1,5 +1,4 @@
-### 🛡️ hero auth is a free  REST API that you can use whenever you need some fake data and Authentication with acl
- #### (laravel x9 & php x8)
+### 🛡️ acs application
 
 ***
 
