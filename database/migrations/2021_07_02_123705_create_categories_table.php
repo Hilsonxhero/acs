@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id")->constrained()->onDelete('cascade');
-            $table->foreignId("category_id")->constrained('categories')->onDelete('cascade');
-            $table->foreignId("media_id")->constrained('media')->onDelete('cascade');
+            $table->unsignedBigInteger("parent_id")->nullable();
             $table->string("title");
             $table->string("slug");
-            $table->longText("content");
-            $table->boolean("is_published")->default(0);
-            $table->boolean("status")->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -35,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('categories');
     }
 };
